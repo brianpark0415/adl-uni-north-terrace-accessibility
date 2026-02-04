@@ -1,6 +1,5 @@
 """
-Campus Graph Model for Accessible Navigation
-Represents the campus as a weighted graph with accessibility attributes
+Represent the campus as a weighted graph with accessibility features
 """
 
 from dataclasses import dataclass, field
@@ -36,7 +35,6 @@ class AccessibilityFeature(Enum):
 
 @dataclass
 class Node:
-    """Represents a point on campus (building entrance, intersection, etc.)"""
     id: str
     name: str
     latitude: float
@@ -78,13 +76,12 @@ class Node:
 
 @dataclass
 class Edge:
-    """Represents a pathway between two nodes"""
     from_node: str
     to_node: str
-    distance: float  # meters
+    distance: float  
     slope: float = 0.0  # percentage grade (positive = uphill, negative = downhill)
     surface: SurfaceType = SurfaceType.SMOOTH_PAVEMENT
-    width: float = 2.0  # meters
+    width: float = 2.0 
     is_bidirectional: bool = True
     is_sheltered: bool = False
     features: Set[AccessibilityFeature] = field(default_factory=set)
@@ -149,10 +146,6 @@ class Edge:
 
 
 class CampusGraph:
-    """
-    Graph representation of the campus with accessibility information
-    """
-    
     def __init__(self):
         self.nodes: Dict[str, Node] = {}
         self.edges: Dict[str, List[Edge]] = {}  # from_node -> list of edges
@@ -199,7 +192,6 @@ class CampusGraph:
         return neighbors
     
     def mark_path_blocked(self, from_node: str, to_node: str, reason: str, until: Optional[datetime] = None) -> bool:
-        """Mark a path as temporarily blocked"""
         if from_node not in self.edges:
             return False
         
@@ -245,7 +237,6 @@ class CampusGraph:
         return updated
     
     def save_to_file(self, filename: str) -> None:
-        """Save the graph to a JSON file"""
         data = {
             "metadata": self.metadata,
             "nodes": [node.to_dict() for node in self.nodes.values()],
@@ -267,7 +258,6 @@ class CampusGraph:
     
     @staticmethod
     def load_from_file(filename: str) -> 'CampusGraph':
-        """Load a graph from a JSON file"""
         with open(filename, 'r') as f:
             data = json.load(f)
         
@@ -285,7 +275,6 @@ class CampusGraph:
         return graph
     
     def get_statistics(self) -> dict:
-        """Get statistics about the campus graph"""
         total_distance = sum(
             edge.distance 
             for edges in self.edges.values() 

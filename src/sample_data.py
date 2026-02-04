@@ -1,6 +1,5 @@
 """
-Enhanced sample data builder for University of Adelaide North Terrace Campus
-This creates a more realistic and detailed map with proper accessibility considerations
+Campus data specific to Adelaide University North Terrace Campus
 """
 
 from campus_graph import (

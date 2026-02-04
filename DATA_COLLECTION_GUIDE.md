@@ -4,7 +4,7 @@
 
 This guide helps you collect accurate data to expand the accessible navigation system.
 
-## 📋 What Data to Collect
+## What Data to Collect
 
 ### For Each Building/Location:
 
@@ -16,7 +16,7 @@ This guide helps you collect accurate data to expand the accessible navigation s
 
 2. **Accessibility Features**
    - ✅ Automatic doors
-   - ✅ Elevators (note which floors they serve)
+   - ✅ Elevators
    - ✅ Ramps
    - ✅ Accessible bathrooms
    - ✅ Rest areas with seating
@@ -32,10 +32,10 @@ This guide helps you collect accurate data to expand the accessible navigation s
 ### For Each Pathway:
 
 1. **Physical Measurements**
-   - Distance (use Google Maps measurement tool or measuring wheel)
-   - Width (minimum clearance in meters)
-   - Slope/grade (use smartphone app like "Clinometer" or "Bubble Level")
-   - Surface type (smooth pavement, brick, gravel, etc.)
+   - Distance (use Google Maps measurement tool)
+   - Width (minimum clearance)
+   - Slope/grade (use smartphone app like Clinometer)
+   - Surface type (smooth pavement, brick, etc)
 
 2. **Accessibility Features**
    - Is it sheltered? (covered walkway, building connection)
@@ -48,7 +48,7 @@ This guide helps you collect accurate data to expand the accessible navigation s
    - Are there stairs as an alternative?
    - Weather-dependent conditions?
 
-## 🛠️ Tools Needed
+## Tools Needed
 
 ### Essential
 - Smartphone with GPS
@@ -57,33 +57,28 @@ This guide helps you collect accurate data to expand the accessible navigation s
 
 ### Helpful
 - Measuring wheel or laser distance measurer
-- Inclinometer app (for measuring slopes)
+- Clinometer app (for measuring slopes)
 - Camera (for documentation)
 - Clipboard and paper maps
 
 ## 📱 Recommended Apps
 
-1. **GPS Status** (Android) / **GPS Coordinates** (iOS)
-   - Get precise latitude/longitude
-
-2. **Clinometer** (iOS/Android)
+1. **Clinometer** (iOS/Android)
    - Measure slope percentages accurately
 
-3. **Google Maps**
+2. **Google Maps**
    - Right-click → "Measure distance"
    - Get coordinates: Right-click → "What's here?"
 
-4. **Wheel Measure** (if you have a measuring wheel)
-   - Physical distance measurement
 
-## 📝 Data Collection Template
+## Data Collection Template
 
 ### Node Template
 ```
 Node ID: [short_unique_id]
 Name: [Full descriptive name]
-Latitude: [-34.XXXX]
-Longitude: [138.XXXX]
+Latitude: Use Google Maps -> right click on location -> copy/paste latitude
+Longitude: Use Google Maps -> right click on location -> copy/paste longitude
 Building: [Building name or null]
 Floor: [0 for ground level]
 Features: [list of features]
@@ -94,27 +89,24 @@ Notes: [Any additional information]
 ```
 From: [node_id_1]
 To: [node_id_2]
-Distance: [meters]
+Distance: [metres]
 Slope: [percentage, positive=uphill, negative=downhill]
 Surface: [smooth_pavement|brick|gravel|grass|etc]
-Width: [meters]
-Bidirectional: [yes/no]
+Width: [metres]
 Sheltered: [yes/no]
 Features: [list of features]
 Notes: [Any additional information]
 ```
 
-## 🎯 Priority Areas to Map
+## Priority Areas to Map
 
 ### High Priority (Most Used)
 1. **Main library entrances**
    - Barr Smith Library all accessible entrances
-   - Law Library
    
 2. **Lecture theaters**
    - Scott Theatre
    - Napier Lecture Theatres
-   - Engineering Theaters
 
 3. **Student services**
    - Hub Central
@@ -127,12 +119,11 @@ Notes: [Any additional information]
    - Arts buildings
 
 ### Medium Priority
-5. **Dining areas**
+5. **F&B areas**
    - Union House
-   - Cafeterias
-   - Food courts
+   - Uni Bar
 
-6. **Residential colleges**
+6. **Student Accomodations**
    - If applicable
 
 ### Lower Priority
@@ -140,7 +131,7 @@ Notes: [Any additional information]
    - Administrative offices
    - Maintenance facilities
 
-## 📐 Measuring Slopes
+## Measuring Slopes
 
 Slope is critical for accessibility. Here's how to measure:
 
@@ -159,30 +150,9 @@ Slope is critical for accessibility. Here's how to measure:
    - **> 8%**: May require assistance
    - **> 12%**: Generally not accessible
 
-## 🗺️ Using Google Maps for Data
-
-### Getting Coordinates:
-1. Right-click on the location
-2. Click "What's here?"
-3. Copy the coordinates at the bottom
-4. Format: `-34.9195, 138.6055`
-
-### Measuring Distance:
-1. Right-click on start point
-2. "Measure distance"
-3. Click on end point
-4. Distance shown at bottom
-
-### Checking Accessibility:
-- Use Street View to inspect:
-  - Door types
-  - Ramps vs. stairs
-  - Path width
-  - Surface quality
-
 ## 📊 How to Add Data to the System
 
-### Method 1: Via Web Interface (When Available)
+### Method 1: Via Web Interface
 1. Go to the "Contribute" tab
 2. Use the collaborative editing features
 3. Submit new nodes and edges
@@ -195,8 +165,8 @@ Edit `src/sample_data.py`:
 new_building = Node(
     id="your_building_id",  # Use lowercase, underscores
     name="Your Building Name - Entrance",
-    latitude=-34.9XXX,
-    longitude=138.6XXX,
+    latitude=-34.XXXXXXXXX,
+    longitude=138.XXXXXXXXX,
     building="Your Building Name",
     floor=0,
     features={
@@ -211,10 +181,10 @@ graph.add_node(new_building)
 graph.add_edge(Edge(
     from_node="existing_node_id",
     to_node="your_building_id",
-    distance=50,  # meters
+    distance=50,  # metres
     slope=2.5,    # percentage
     surface=SurfaceType.SMOOTH_PAVEMENT,
-    width=2.5,    # meters
+    width=2.5,    # metres
     is_sheltered=False,
     features={AccessibilityFeature.CURB_CUT}
 ))
@@ -228,20 +198,19 @@ python src/sample_data.py
 ### Method 3: Direct JSON Editing
 Edit `data/north_terrace_campus.json` directly (advanced users only).
 
-## ✅ Data Quality Checklist
+## Data Quality Checklist
 
 Before adding data, verify:
 
-- [ ] GPS coordinates are accurate (±10 meters)
+- [ ] GPS coordinates are accurate
 - [ ] Distance measurements are reasonable
 - [ ] Slope percentages are measured, not estimated
-- [ ] Width is the minimum clearance (not maximum)
+- [ ] Width is the minimum clearance
 - [ ] Surface type is correctly identified
 - [ ] All accessibility features are noted
-- [ ] Bidirectional paths are marked correctly
 - [ ] Sheltered status is accurate
 
-## 🔄 Updating Existing Data
+## Updating Existing Data
 
 When campus changes occur:
 
@@ -250,27 +219,7 @@ When campus changes occur:
 3. **Maintenance**: Use "Report Issue" feature
 4. **Permanent changes**: Update the base data
 
-## 📸 Documentation Best Practices
-
-1. **Take photos** of:
-   - Building entrances
-   - Ramps and slopes
-   - Path surfaces
-   - Accessibility features
-   - Problem areas
-
-2. **Label photos** with:
-   - Location/node ID
-   - Date
-   - Direction facing
-   - Feature shown
-
-3. **Store systematically**:
-   - Folder per building
-   - Consistent naming
-   - Include in documentation
-
-## 🤝 Community Collaboration
+## Community Collaboration
 
 ### For Student Projects:
 - Assign building/area zones to different team members
@@ -291,7 +240,7 @@ When campus changes occur:
 - Seasonal updates (weather impacts)
 - Version control for changes
 
-## 📈 Validation Methods
+## Validation Methods
 
 ### Self-Testing
 1. Walk/navigate the route yourself
@@ -310,35 +259,9 @@ When campus changes occur:
 3. Verify with facilities management
 4. Use multiple measurement methods
 
-## 🎓 Academic Research Opportunities
-
-This data collection can support:
-
-- **Geographic Information Systems (GIS)** projects
-- **Accessibility research** papers
-- **Urban planning** case studies
-- **Computer science** algorithm optimization
-- **Human-computer interaction** studies
-
-Document your methodology for potential publication!
-
-## 📞 Getting Help
+## Getting Help
 
 If you need assistance:
 
 1. Check the main README.md
 2. Review the code documentation
-3. Test with the demo.py script
-4. Start small (one building at a time)
-
-## 🎯 Success Metrics
-
-Track your progress:
-
-- Number of nodes added
-- Number of edges mapped
-- Total distance covered
-- Buildings completed
-- User feedback score
-
-Good luck with your data collection! 🚀

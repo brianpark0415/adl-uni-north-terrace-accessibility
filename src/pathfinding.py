@@ -373,10 +373,6 @@ class MultiCriteriaRouter:
         )
     
     def _calculate_accessibility_score(self, segments: List[RouteSegment]) -> float:
-        """
-        Calculate overall accessibility score for the route
-        Higher score = more accessible
-        """
         if not segments:
             return 0
         
@@ -385,22 +381,22 @@ class MultiCriteriaRouter:
         for segment in segments:
             edge = segment.edge
             
-            # Penalize steep slopes
-            if abs(edge.slope) > 5:
-                score -= abs(edge.slope) * 2
+            # Penalise steep slopes
+            if abs(edge.slope) > 2:
+                score -= abs(edge.slope) * 3
             
-            # Penalize poor surfaces
+            # Penalise poor surfaces
             if edge.surface in [SurfaceType.GRAVEL, SurfaceType.GRASS]:
-                score -= 10
+                score -= 20
             elif edge.surface in [SurfaceType.BRICK, SurfaceType.ROUGH_PAVEMENT]:
-                score -= 5
+                score -= 10
             
             # Reward sheltered paths
             if edge.is_sheltered:
                 score += 2
             
             # Reward accessibility features
-            score += len(edge.features) * 3
+            score += len(edge.features) * 2
         
         return max(0, min(100, score))
     
@@ -410,9 +406,6 @@ class MultiCriteriaRouter:
         end_node_id: str,
         num_alternatives: int = 3
     ) -> List[Route]:
-        """
-        Find multiple alternative routes with different optimization criteria
-        """
         routes = []
         preferences = [
             RoutingPreference.SHORTEST,

@@ -1,8 +1,3 @@
-"""
-Flask Web Application for Accessible Campus Navigation
-Provides REST API and web interface
-"""
-
 from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS
 import json
@@ -102,18 +97,6 @@ def add_edge():
 
 @app.route('/api/route', methods=['POST'])
 def find_route():
-    """
-    Find a route between two points
-    
-    Request body:
-    {
-        "start": "node_id",
-        "end": "node_id",
-        "preference": "shortest|flattest|most_sheltered|balanced",
-        "max_slope": 8.0,
-        "min_width": 1.2
-    }
-    """
     try:
         data = request.json
         start = data.get('start')
@@ -139,16 +122,6 @@ def find_route():
 
 @app.route('/api/route/alternatives', methods=['POST'])
 def find_alternative_routes():
-    """
-    Find multiple alternative routes
-    
-    Request body:
-    {
-        "start": "node_id",
-        "end": "node_id",
-        "num_alternatives": 3
-    }
-    """
     try:
         data = request.json
         start = data.get('start')
@@ -173,17 +146,6 @@ def find_alternative_routes():
 
 @app.route('/api/block_path', methods=['POST'])
 def block_path():
-    """
-    Mark a path as blocked (for maintenance, construction, etc.)
-    
-    Request body:
-    {
-        "from_node": "node_id",
-        "to_node": "node_id",
-        "reason": "Elevator maintenance",
-        "until": "2024-12-31T23:59:59" (optional)
-    }
-    """
     try:
         data = request.json
         from_node = data.get('from_node')

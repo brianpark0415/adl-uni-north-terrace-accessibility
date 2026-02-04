@@ -1,8 +1,3 @@
-"""
-Setup verification script
-Run this to check if everything is installed correctly
-"""
-
 import sys
 
 print("="*60)
