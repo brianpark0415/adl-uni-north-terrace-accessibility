@@ -3,14 +3,14 @@
 
 A comprehensive routing system designed to help people with mobility challenges navigate the University of Adelaide's North Terrace campus efficiently and safely.
 
-## 🎯 Features
+## Features
 
-### 1. Multi-Criteria Route Optimization
-- **Shortest Route**: Minimizes total distance
-- **Flattest Route**: Avoids steep slopes and elevation changes
-- **Most Sheltered Route**: Maximizes coverage from weather
-- **Balanced Route**: Optimizes across all factors
-- **Custom Preferences**: Adjustable max slope and minimum width
+### 1. Multi-Criteria Route Optimisation
+- Shortest Route: Minimises total distance
+- Flattest Route: Avoids steep slopes and elevation changes
+- Most Sheltered Route: Maximises coverage from the weather
+- Balanced Route: Optimises across all factors
+- Custom Preferences: Adjustable max slope and minimum width
 
 ### 2. Google Maps Integration
 - Interactive campus map with all accessible routes
@@ -22,9 +22,8 @@ A comprehensive routing system designed to help people with mobility challenges 
 - Report temporarily blocked paths (elevator maintenance, construction)
 - Community-driven data updates
 - Real-time campus statistics
-- Contribution tracking
 
-## 🏗️ Technical Architecture
+## Technical Architecture
 
 ### Core Components
 
@@ -65,7 +64,7 @@ A comprehensive routing system designed to help people with mobility challenges 
    - Collaborative editing interface
    - Real-time statistics dashboard
 
-## 📦 Installation
+## Installation
 
 ### Prerequisites
 - Python 3.8+
@@ -98,8 +97,6 @@ cp .env.example .env
 # GOOGLE_MAPS_API_KEY=your_actual_api_key_here
 ```
 
-**Important:** See [SECURITY.md](SECURITY.md) for how to protect your API keys!
-
 5. **Run the application**
 ```bash
 python app.py
@@ -108,9 +105,8 @@ python app.py
 6. **Access the interface**
 Open your browser to `http://localhost:8080` (or port 5000 if not in use)
 
-See [QUICKSTART.md](QUICKSTART.md) for more details and [SECURITY.md](SECURITY.md) for API key protection.
 
-## 🚀 Usage
+## Usage
 
 ### Finding a Route
 
@@ -134,7 +130,7 @@ Click "Compare Alternatives" to see multiple route options side-by-side, each op
 3. Provide a description of the issue
 4. Submit the report
 
-## 📊 API Documentation
+## API Documentation
 
 ### Find Route
 ```bash
@@ -202,7 +198,7 @@ Content-Type: application/json
 GET /api/statistics
 ```
 
-## 🎨 Customization
+## Customization
 
 ### Adding New Buildings/Nodes
 
@@ -241,7 +237,7 @@ graph.add_edge(Edge(
 
 ### Adjusting Cost Functions
 
-Modify `_calculate_edge_cost()` in `pathfinding.py` to customize how routes are optimized:
+Modify `_calculate_edge_cost()` in `pathfinding.py` to customise how routes are optimised:
 
 ```python
 def _calculate_edge_cost(self, edge, preference, max_slope):
@@ -252,55 +248,6 @@ def _calculate_edge_cost(self, edge, preference, max_slope):
         # Your custom logic here
         return base_cost * custom_multiplier
 ```
-
-## 🔬 Making It More Impressive
-
-### Completed Features
-✅ Multi-criteria optimization
-✅ Google Maps integration framework
-✅ Collaborative editing system
-
-### Suggested Enhancements
-
-1. **Real-time Data Integration**
-   - Connect to University facilities management systems
-   - Automatic elevator status updates
-   - Weather-based route suggestions
-
-2. **Machine Learning**
-   - Predict elevator downtime patterns
-   - Learn optimal routes based on user preferences
-   - Estimate travel times based on historical data
-
-3. **Indoor Navigation**
-   - Multi-floor building routing
-   - QR code waypoint system
-   - Bluetooth beacon integration
-
-4. **Mobile AR Interface**
-   - Augmented reality directional overlays
-   - Voice-guided navigation
-   - Real-time obstacle detection
-
-5. **Accessibility Profiles**
-   - Manual wheelchair vs. electric wheelchair
-   - Vision impairment accommodations
-   - Temporary mobility issues (crutches, injuries)
-
-6. **Social Features**
-   - Route ratings and reviews
-   - Volunteer escort service integration
-   - Real-time crowdsourced updates
-
-7. **Emergency Features**
-   - Accessible evacuation routes
-   - Emergency assembly point navigation
-   - Integration with campus security
-
-8. **Analytics Dashboard**
-   - Usage patterns and popular routes
-   - Accessibility gap analysis
-   - Impact measurement for infrastructure improvements
 
 ## 📁 Project Structure
 
@@ -319,15 +266,6 @@ accessible-campus-nav/
 ├── requirements.txt          # Python dependencies
 └── README.md                 # This file
 ```
-
-## 🤝 Contributing
-
-This project is designed for collaborative expansion:
-
-1. **Data Contributors**: Add buildings, pathways, and accessibility features
-2. **Developers**: Enhance algorithms, add features
-3. **Testers**: Verify routes and report issues
-4. **Designers**: Improve UI/UX
 
 ## 📝 Data Format
 
@@ -362,32 +300,26 @@ Campus data is stored in JSON format:
 }
 ```
 
-## 🔐 Security Considerations
+## Security Considerations
 
 - Input validation on all API endpoints
 - Rate limiting for collaborative editing
 - Authentication system for administrative changes
 - Data backup and version control
 
-## 📄 License
+## Authors
 
-[Add your license here]
+Brian Park
 
-## 👥 Authors
-
-[Add your name and contributors]
-
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - University of Adelaide for campus inspiration
 - Open-source routing algorithms
 - Accessibility advocacy groups
 
-## 📞 Contact
+## Contact
 
 For questions, suggestions, or collaboration opportunities:
-[Add contact information]
+brianpark0415@gmail.com
 
 ---
-
-**Note**: This is a starter project with sample data. For production use, gather accurate campus measurements, GPS coordinates, and accessibility features through site surveys or collaboration with facilities management.
