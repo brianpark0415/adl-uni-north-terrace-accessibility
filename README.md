@@ -10,13 +10,10 @@ A comprehensive routing system designed to help people with mobility challenges 
 - Flattest Route: Avoids steep slopes and elevation changes
 - Most Sheltered Route: Maximises coverage from the weather
 - Balanced Route: Optimises across all factors
-- Custom Preferences: Adjustable max slope and minimum width
 
 ### 2. Google Maps Integration
 - Interactive campus map with all accessible routes
 - Visual route display with turn-by-turn directions
-- Real-time route comparison
-- Mobile-responsive interface
 
 ### 3. Collaborative Editing System
 - Report temporarily blocked paths (elevator maintenance, construction)
