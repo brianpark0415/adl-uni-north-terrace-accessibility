@@ -206,6 +206,30 @@ def create_sample_campus() -> CampusGraph:
         },
         notes="Engineering Annex"
     )
+
+    eng_south_1st_floor = Node(
+        id = "eng_south_1st_floor",
+        name = "Engineering South 1st Floor Entrance",
+        latitude=-34.91959891359262, 
+        longitude=138.60557396196234,
+        building = "Engineering South",
+        floor = 1,
+        features={
+            AccessibilityFeature.REST_AREA
+        },
+    )
+
+    eng_south_ground_floor = Node(
+        id = "eng_south_ground_floor",
+        name = "Engineering South Ground Floor Entrance",
+        latitude=-34.919154404000565,
+        longitude=138.60572351021352,
+        building = "Engineering South",
+        floor = 0,
+        features={
+            AccessibilityFeature.AUTOMATIC_DOOR
+        },
+    )
     
     # === UNION HOUSE & DINING ===
     
@@ -272,7 +296,43 @@ def create_sample_campus() -> CampusGraph:
         },
         notes="Quiet outdoor space with seating"
     )
-    
+
+    post_office_intersection = Node(
+        id="post_office_intersection",
+        name="Post Office Intersection",
+        latitude=-34.91980688763416, 
+        longitude=138.6051202466815,
+        features={
+            AccessibilityFeature.REST_AREA
+        },
+    )
+
+    main_entrance_lawn = Node(
+        id="main_entrance_lawn",
+        name="Main Entrance Lawn",
+        latitude=-34.9203871455419,  
+        longitude=138.60514332412853,
+        features={
+            AccessibilityFeature.WELL_LIT
+        },
+    )
+
+    main_road_south = Node(
+        id = "main_road_south",
+        name = "Main Road South",
+        latitude=-34.92086874931701,
+        longitude=138.6042519759701,
+        features={AccessibilityFeature.CURB_CUT}
+    )
+
+    main_road_north = Node(
+        id = "main_road_north",
+        name = "Main Road North",
+        latitude=-34.919562999744606,
+        longitude=138.60414817720883,
+        features={AccessibilityFeature.CURB_CUT}
+    )
+
     # === LIGERTWOOD BUILDING ===
     
     ligertwood = Node(
@@ -314,46 +374,6 @@ def create_sample_campus() -> CampusGraph:
             AccessibilityFeature.REST_AREA
         },
     )
-
-    eng_south_1st_floor = Node(
-        id = "eng_south_1st_floor",
-        name = "Engineering South 1st Floor Entrance",
-        latitude=-34.91959891359262, 
-        longitude=138.60557396196234,
-        building = "Engineering South",
-        floor = 1,
-        features={
-            AccessibilityFeature.REST_AREA
-        },
-    )
-
-    eng_south_ground_floor = Node(
-        id = "eng_south_ground_floor",
-        name = "Engineering South Ground Floor Entrance",
-        latitude=-34.919154404000565,
-        longitude=138.60572351021352,
-        building = "Engineering South",
-        floor = 0,
-        features={
-            AccessibilityFeature.AUTOMATIC_DOOR
-        },
-    )
-
-    main_road_south = Node(
-        id = "main_road_south",
-        name = "Main Road South",
-        latitude=-34.92086874931701,
-        longitude=138.6042519759701,
-        features={AccessibilityFeature.CURB_CUT}
-    )
-
-    main_road_north = Node(
-        id = "main_road_north",
-        name = "Main Road north",
-        latitude=-34.919562999744606,
-        longitude=138.60414817720883,
-        features={AccessibilityFeature.CURB_CUT}
-    )
     
     # Add all nodes
     for node in [
@@ -368,7 +388,9 @@ def create_sample_campus() -> CampusGraph:
         union_house, union_courtyard,
         horace_lamb,
         bonythonhall,
+        post_office_intersection,
         elderhall,
+        main_entrance_lawn,
         north_terrace_crossing, library_courtyard, ligertwood
     ]:
         graph.add_node(node)
@@ -471,7 +493,7 @@ def create_sample_campus() -> CampusGraph:
     graph.add_edge(Edge(
         from_node="elderhall",
         to_node="main_road_south",
-        distance=40,
+        distance=30,
         slope=0.0,
         surface=SurfaceType.SMOOTH_PAVEMENT,
         width=5.5,
@@ -507,6 +529,33 @@ def create_sample_campus() -> CampusGraph:
         slope=0.5,
         surface=SurfaceType.SMOOTH_PAVEMENT,
         width=2.5
+    ))
+
+    graph.add_edge(Edge(
+        from_node="main_entrance_lawn",
+        to_node="post_office_intersection",
+        distance=50,
+        slope=-3,
+        surface=SurfaceType.SMOOTH_PAVEMENT,
+        width=5
+    ))
+
+    graph.add_edge(Edge(
+        from_node="main_entrance_lawn",
+        to_node="elderhall",
+        distance=15,
+        slope=0.0,
+        surface=SurfaceType.SMOOTH_PAVEMENT,
+        width=5
+    ))
+
+    graph.add_edge(Edge(
+        from_node="main_entrance_lawn",
+        to_node="napier_south",
+        distance=80,
+        slope=-2,
+        surface=SurfaceType.SMOOTH_PAVEMENT,
+        width=5
     ))
     
     # Union House connections
@@ -568,6 +617,28 @@ def create_sample_campus() -> CampusGraph:
         width=3.5,
         is_sheltered=True,
         features={AccessibilityFeature.SHELTERED}
+    ))
+
+    graph.add_edge(Edge(
+        from_node="post_office_intersection",
+        to_node="hub_central",
+        distance=25,
+        slope=0.0,
+        surface=SurfaceType.SMOOTH_PAVEMENT,
+        width=6.5,
+        is_sheltered=False,
+        features={AccessibilityFeature.SHELTERED}
+    ))
+
+    graph.add_edge(Edge(
+        from_node="post_office_intersection",
+        to_node="ingkarni_wardli_main",
+        distance=60,
+        slope=0.0,
+        surface=SurfaceType.SMOOTH_PAVEMENT,
+        width=4.5,
+        is_sheltered=False,
+        features={AccessibilityFeature.RAMP, AccessibilityFeature.ELEVATOR}
     ))
 
     graph.add_edge(Edge(
@@ -741,18 +812,6 @@ def create_sample_campus() -> CampusGraph:
         features={AccessibilityFeature.RAMP}
     ))
 
-    # Elder Hall
-    graph.add_edge(Edge(
-        from_node="elderhall",
-        to_node="hub_east_entrance",
-        distance=45,
-        slope=-5,
-        surface=SurfaceType.SMOOTH_PAVEMENT,
-        width=6.0,
-        is_sheltered=False,
-        features={AccessibilityFeature.AUTOMATIC_DOOR}
-    ))
-
     graph.add_edge(Edge(
         from_node="elderhall",
         to_node="ligertwood",
@@ -819,18 +878,4 @@ if __name__ == "__main__":
     for node_name in outdoor:
         print(f"     - {node_name}")
     
-    print("\n✨ Key Improvements:")
-    print("  • Multiple entrances per building (some with ramps, some with elevators)")
-    print("  • Alternative routes with different accessibility features")
-    print("  • Realistic slope gradients and distances")
-    print("  • Indoor and outdoor pathway connections")
-    print("  • Rest areas and accessible facilities marked")
-    print("  • Both direct and longer-but-flatter route options")
-    
-    print("\n💡 The routing algorithm will now:")
-    print("  • Avoid steep slopes when using 'flattest' preference")
-    print("  • Find longer but more accessible alternative routes")
-    print("  • Utilize ramped entrances over steep main entrances")
-    print("  • Consider sheltered pathways for weather protection")
-    print("  • Show multiple viable routes with different trade-offs")
 

@@ -1,7 +1,7 @@
 {
   "metadata": {
     "campus_name": "University of Adelaide - North Terrace Campus",
-    "last_updated": "2026-02-04T14:25:06.868362",
+    "last_updated": "2026-02-06T14:01:10.976781",
     "contributors": [
       "Enhanced Accessibility Mapping"
     ],
@@ -18,9 +18,9 @@
       "floor": 0,
       "features": [
         "automatic_door",
+        "accessible_bathroom",
         "elevator",
-        "rest_area",
-        "accessible_bathroom"
+        "rest_area"
       ],
       "is_indoor": false,
       "notes": "Main accessible entrance with elevator access to all floors"
@@ -33,8 +33,8 @@
       "building": "Barr Smith Library",
       "floor": 0,
       "features": [
-        "ramp",
-        "automatic_door"
+        "automatic_door",
+        "ramp"
       ],
       "is_indoor": false,
       "notes": "Alternative entrance with ramped access"
@@ -47,9 +47,9 @@
       "building": "Barr Smith Library",
       "floor": 1,
       "features": [
-        "rest_area",
+        "accessible_bathroom",
         "elevator",
-        "accessible_bathroom"
+        "rest_area"
       ],
       "is_indoor": true,
       "notes": ""
@@ -62,8 +62,8 @@
       "building": "Hub Central",
       "floor": 0,
       "features": [
-        "accessible_bathroom",
         "automatic_door",
+        "accessible_bathroom",
         "elevator",
         "rest_area"
       ],
@@ -78,8 +78,8 @@
       "building": "Hub Central",
       "floor": 0,
       "features": [
-        "ramp",
-        "automatic_door"
+        "automatic_door",
+        "ramp"
       ],
       "is_indoor": false,
       "notes": ""
@@ -93,8 +93,8 @@
       "floor": 0,
       "features": [
         "automatic_door",
-        "elevator",
-        "accessible_bathroom"
+        "accessible_bathroom",
+        "elevator"
       ],
       "is_indoor": false,
       "notes": ""
@@ -107,8 +107,8 @@
       "building": "Ingkarni Wardli",
       "floor": 0,
       "features": [
-        "ramp",
-        "automatic_door"
+        "automatic_door",
+        "ramp"
       ],
       "is_indoor": false,
       "notes": "Level entry from north side"
@@ -135,8 +135,8 @@
       "building": "Napier Building",
       "floor": 0,
       "features": [
-        "ramp",
-        "handrails"
+        "handrails",
+        "ramp"
       ],
       "is_indoor": false,
       "notes": "Ramped access - easier approach than main entrance"
@@ -149,8 +149,8 @@
       "building": "Scott Theatre",
       "floor": 0,
       "features": [
-        "ramp",
-        "automatic_door"
+        "automatic_door",
+        "ramp"
       ],
       "is_indoor": false,
       "notes": ""
@@ -170,7 +170,7 @@
     },
     {
       "id": "main_road_north",
-      "name": "Main Road north",
+      "name": "Main Road North",
       "latitude": -34.919562999744606,
       "longitude": 138.60414817720883,
       "building": null,
@@ -190,8 +190,8 @@
       "floor": 0,
       "features": [
         "automatic_door",
-        "elevator",
-        "accessible_bathroom"
+        "accessible_bathroom",
+        "elevator"
       ],
       "is_indoor": false,
       "notes": ""
@@ -243,8 +243,8 @@
       "building": "Union House",
       "floor": 0,
       "features": [
-        "accessible_bathroom",
         "automatic_door",
+        "accessible_bathroom",
         "elevator",
         "rest_area"
       ],
@@ -292,6 +292,19 @@
       "notes": "sloped"
     },
     {
+      "id": "post_office_intersection",
+      "name": "Post Office Intersection",
+      "latitude": -34.91980688763416,
+      "longitude": 138.6051202466815,
+      "building": null,
+      "floor": 0,
+      "features": [
+        "rest_area"
+      ],
+      "is_indoor": false,
+      "notes": ""
+    },
+    {
       "id": "elderhall",
       "name": "Elder Hall",
       "latitude": -34.92038516757291,
@@ -301,6 +314,19 @@
       "features": [
         "ramp",
         "rest_area"
+      ],
+      "is_indoor": false,
+      "notes": ""
+    },
+    {
+      "id": "main_entrance_lawn",
+      "name": "Main Entrance Lawn",
+      "latitude": -34.9203871455419,
+      "longitude": 138.60514332412853,
+      "building": null,
+      "floor": 0,
+      "features": [
+        "well_lit"
       ],
       "is_indoor": false,
       "notes": ""
@@ -339,8 +365,8 @@
       "building": "Ligertwood",
       "floor": 0,
       "features": [
-        "ramp",
-        "automatic_door"
+        "automatic_door",
+        "ramp"
       ],
       "is_indoor": false,
       "notes": "Large courtyard in front"
@@ -357,8 +383,8 @@
       "is_bidirectional": true,
       "is_sheltered": true,
       "features": [
-        "sheltered",
-        "elevator"
+        "elevator",
+        "sheltered"
       ],
       "is_accessible": true,
       "blocked_reason": null,
@@ -404,8 +430,8 @@
       "is_bidirectional": true,
       "is_sheltered": true,
       "features": [
-        "sheltered",
-        "elevator"
+        "elevator",
+        "sheltered"
       ],
       "is_accessible": true,
       "blocked_reason": null,
@@ -481,8 +507,8 @@
       "is_bidirectional": true,
       "is_sheltered": false,
       "features": [
-        "ramp",
-        "elevator"
+        "elevator",
+        "ramp"
       ],
       "is_accessible": true,
       "blocked_reason": null,
@@ -505,16 +531,33 @@
       "blocked_until": null
     },
     {
-      "from_node": "hub_east_entrance",
-      "to_node": "elderhall",
-      "distance": 45,
-      "slope": 5,
+      "from_node": "hub_central",
+      "to_node": "post_office_intersection",
+      "distance": 25,
+      "slope": -0.0,
       "surface": "smooth_pavement",
-      "width": 6.0,
+      "width": 6.5,
       "is_bidirectional": true,
       "is_sheltered": false,
       "features": [
-        "automatic_door"
+        "sheltered"
+      ],
+      "is_accessible": true,
+      "blocked_reason": null,
+      "blocked_until": null
+    },
+    {
+      "from_node": "ingkarni_wardli_main",
+      "to_node": "post_office_intersection",
+      "distance": 60,
+      "slope": -0.0,
+      "surface": "smooth_pavement",
+      "width": 4.5,
+      "is_bidirectional": true,
+      "is_sheltered": false,
+      "features": [
+        "elevator",
+        "ramp"
       ],
       "is_accessible": true,
       "blocked_reason": null,
@@ -622,9 +665,23 @@
       "is_bidirectional": true,
       "is_sheltered": false,
       "features": [
-        "ramp",
-        "elevator"
+        "elevator",
+        "ramp"
       ],
+      "is_accessible": true,
+      "blocked_reason": null,
+      "blocked_until": null
+    },
+    {
+      "from_node": "napier_south",
+      "to_node": "main_entrance_lawn",
+      "distance": 80,
+      "slope": 2,
+      "surface": "smooth_pavement",
+      "width": 5,
+      "is_bidirectional": true,
+      "is_sheltered": false,
+      "features": [],
       "is_accessible": true,
       "blocked_reason": null,
       "blocked_until": null
@@ -720,8 +777,8 @@
       "is_bidirectional": true,
       "is_sheltered": false,
       "features": [
-        "well_lit",
-        "curb_cut"
+        "curb_cut",
+        "well_lit"
       ],
       "is_accessible": true,
       "blocked_reason": null,
@@ -737,8 +794,8 @@
       "is_bidirectional": true,
       "is_sheltered": false,
       "features": [
-        "well_lit",
-        "curb_cut"
+        "curb_cut",
+        "well_lit"
       ],
       "is_accessible": true,
       "blocked_reason": null,
@@ -763,7 +820,7 @@
     {
       "from_node": "main_road_south",
       "to_node": "elderhall",
-      "distance": 40,
+      "distance": 30,
       "slope": -0.0,
       "surface": "smooth_pavement",
       "width": 5.5,
@@ -786,8 +843,8 @@
       "is_bidirectional": true,
       "is_sheltered": false,
       "features": [
-        "sheltered",
-        "automatic_door"
+        "automatic_door",
+        "sheltered"
       ],
       "is_accessible": true,
       "blocked_reason": null,
@@ -865,8 +922,8 @@
       "is_bidirectional": true,
       "is_sheltered": false,
       "features": [
-        "well_lit",
-        "curb_cut"
+        "curb_cut",
+        "well_lit"
       ],
       "is_accessible": true,
       "blocked_reason": null,
@@ -882,9 +939,37 @@
       "is_bidirectional": true,
       "is_sheltered": false,
       "features": [
-        "well_lit",
-        "rest_area"
+        "rest_area",
+        "well_lit"
       ],
+      "is_accessible": true,
+      "blocked_reason": null,
+      "blocked_until": null
+    },
+    {
+      "from_node": "post_office_intersection",
+      "to_node": "main_entrance_lawn",
+      "distance": 50,
+      "slope": 3,
+      "surface": "smooth_pavement",
+      "width": 5,
+      "is_bidirectional": true,
+      "is_sheltered": false,
+      "features": [],
+      "is_accessible": true,
+      "blocked_reason": null,
+      "blocked_until": null
+    },
+    {
+      "from_node": "elderhall",
+      "to_node": "main_entrance_lawn",
+      "distance": 15,
+      "slope": -0.0,
+      "surface": "smooth_pavement",
+      "width": 5,
+      "is_bidirectional": true,
+      "is_sheltered": false,
+      "features": [],
       "is_accessible": true,
       "blocked_reason": null,
       "blocked_until": null
@@ -899,8 +984,8 @@
       "is_bidirectional": true,
       "is_sheltered": false,
       "features": [
-        "well_lit",
-        "curb_cut"
+        "curb_cut",
+        "well_lit"
       ],
       "is_accessible": true,
       "blocked_reason": null,
@@ -932,9 +1017,9 @@
       "is_bidirectional": true,
       "is_sheltered": false,
       "features": [
-        "well_lit",
+        "curb_cut",
         "rest_area",
-        "curb_cut"
+        "well_lit"
       ],
       "is_accessible": true,
       "blocked_reason": null,
