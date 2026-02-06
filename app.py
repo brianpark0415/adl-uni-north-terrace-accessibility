@@ -42,13 +42,11 @@ def load_campus_data():
 
 @app.route('/')
 def index():
-    """Main page"""
     return render_template('index.html')
 
 
 @app.route('/api/config', methods=['GET'])
 def get_config():
-    """Get client configuration (including Maps API key)"""
     return jsonify({
         "google_maps_api_key": os.getenv('GOOGLE_MAPS_API_KEY', '')
     })
@@ -56,14 +54,12 @@ def get_config():
 
 @app.route('/api/nodes', methods=['GET'])
 def get_nodes():
-    """Get all nodes"""
     nodes = [node.to_dict() for node in campus_graph.nodes.values()]
     return jsonify(nodes)
 
 
 @app.route('/api/nodes/<node_id>', methods=['GET'])
 def get_node(node_id):
-    """Get a specific node"""
     if node_id not in campus_graph.nodes:
         return jsonify({"error": "Node not found"}), 404
     return jsonify(campus_graph.nodes[node_id].to_dict())
@@ -208,7 +204,7 @@ if __name__ == '__main__':
     import argparse
     
     parser = argparse.ArgumentParser(description='Accessible Campus Navigation Server')
-    parser.add_argument('--port', type=int, default=8080, help='Port to run the server on (default: 5000)')
+    parser.add_argument('--port', type=int, default=8080, help='Port to run the server on (default: 8080)')
     parser.add_argument('--host', type=str, default='0.0.0.0', help='Host to run the server on (default: 0.0.0.0)')
     args = parser.parse_args()
     
