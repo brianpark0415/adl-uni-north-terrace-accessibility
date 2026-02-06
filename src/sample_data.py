@@ -395,14 +395,14 @@ def create_sample_campus() -> CampusGraph:
     ]:
         graph.add_node(node)
     
-    # === PATHWAYS - Creating a realistic network ===
+    # PATHWAYS
     
-    # Hub Central connections - primary hub
+    # Hub Central connections
 
     graph.add_edge(Edge(
         from_node="hub_central",
         to_node="hub_east_entrance",
-        distance=25,
+        distance=30,
         slope=0.0,
         surface=SurfaceType.INDOOR_TILE,
         width=10,
@@ -463,7 +463,7 @@ def create_sample_campus() -> CampusGraph:
     graph.add_edge(Edge(
         from_node="north_terrace_crossing",
         to_node="main_road_south",
-        distance=100,
+        distance=900,
         slope=0.0,
         surface=SurfaceType.SMOOTH_PAVEMENT,
         width=8.5,
@@ -473,7 +473,7 @@ def create_sample_campus() -> CampusGraph:
     graph.add_edge(Edge(
         from_node="main_road_south",
         to_node="main_road_north",
-        distance=150,
+        distance=120,
         slope=-5,
         surface=SurfaceType.SMOOTH_PAVEMENT,
         width=7.5,
@@ -483,7 +483,7 @@ def create_sample_campus() -> CampusGraph:
     graph.add_edge(Edge(
         from_node="bonythonhall",
         to_node="main_road_south",
-        distance=60,
+        distance=50,
         slope=0.0,
         surface=SurfaceType.SMOOTH_PAVEMENT,
         width=7.5,
@@ -514,12 +514,12 @@ def create_sample_campus() -> CampusGraph:
     graph.add_edge(Edge(
         from_node="bs_main_entrance",
         to_node="bs_north_entrance",
-        distance=35,
+        distance=45,
         slope=0.0,
         surface=SurfaceType.INDOOR_TILE,
         width=3.0,
         is_sheltered=True,
-        features={AccessibilityFeature.SHELTERED}
+        features={AccessibilityFeature.SHELTERED, AccessibilityFeature.ELEVATOR}
     ))
     
     graph.add_edge(Edge(

@@ -8,7 +8,6 @@ from campus_graph import CampusGraph, Node, Edge, AccessibilityFeature, SurfaceT
 
 
 class RoutingPreference(Enum):
-    """Different routing optimization preferences"""
     SHORTEST = "shortest"  # Minimize distance
     FLATTEST = "flattest"  # Minimize slope changes
     MOST_SHELTERED = "most_sheltered"  # Maximize sheltered paths
@@ -18,7 +17,6 @@ class RoutingPreference(Enum):
 
 @dataclass
 class RouteSegment:
-    """A segment of the route"""
     from_node: Node
     to_node: Node
     edge: Edge
@@ -28,7 +26,6 @@ class RouteSegment:
 
 @dataclass
 class Route:
-    """A complete route from start to destination"""
     segments: List[RouteSegment]
     total_distance: float
     total_elevation_gain: float
@@ -39,7 +36,6 @@ class Route:
     accessibility_score: float
     
     def get_turn_by_turn_directions(self) -> List[str]:
-        """Generate human-readable directions"""
         directions = []
         
         for i, segment in enumerate(self.segments):
@@ -77,7 +73,6 @@ class Route:
         return directions
     
     def to_dict(self) -> dict:
-        """Convert route to dictionary for JSON serialization"""
         return {
             "segments": [
                 {
@@ -113,9 +108,6 @@ class MultiCriteriaRouter:
         self.graph = campus_graph
     
     def _heuristic(self, node1_id: str, node2_id: str) -> float:
-        """
-        Heuristic function for A* (straight-line distance)
-        """
         node1 = self.graph.nodes[node1_id]
         node2 = self.graph.nodes[node2_id]
         
