@@ -17,7 +17,7 @@ from pathfinding import MultiCriteriaRouter, RoutingPreference
 app = Flask(__name__)
 CORS(app)
 
-# Global graph instance
+# Global graph
 CAMPUS_DATA_FILE = "data/north_terrace_campus.json"
 campus_graph = None
 router = None
