@@ -38,7 +38,7 @@ A comprehensive routing system designed to help people with mobility challenges 
      - Temporary blockages
 
 2. **Multi-Criteria Pathfinding** (`pathfinding.py`)
-   - A* algorithm with customizable cost functions
+   - A* algorithm with customisable cost functions
    - Supports multiple routing preferences
    - Calculates:
      - Total distance and time
@@ -120,7 +120,7 @@ Open your browser to `http://localhost:8080` (or port 5000 if not in use)
 
 ### Viewing Alternative Routes
 
-Click "Compare Alternatives" to see multiple route options side-by-side, each optimized for different criteria.
+Click "Compare Alternatives" to see multiple route options side-by-side, each optimised for different criteria.
 
 ### Contributing Data
 
@@ -197,7 +197,7 @@ Content-Type: application/json
 GET /api/statistics
 ```
 
-## Customization
+## Customisation
 
 ### Adding New Buildings/Nodes
 
