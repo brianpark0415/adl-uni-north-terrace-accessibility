@@ -3,6 +3,8 @@
 
 A comprehensive routing system designed to help people with mobility challenges navigate the University of Adelaide's North Terrace campus efficiently and safely.
 
+<img width="1440" height="775" alt="Screenshot 2026-02-17 at 1 29 18 pm" src="https://github.com/user-attachments/assets/4ef70ebd-c3b4-4839-8e47-e79ad8d32e95" />
+
 ## Features
 
 ### 1. Multi-Criteria Route Optimisation
