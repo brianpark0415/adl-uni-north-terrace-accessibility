@@ -632,7 +632,7 @@ def create_sample_campus() -> CampusGraph:
 
     graph.add_edge(Edge(
         from_node="post_office_intersection",
-        to_node="hub_east_endtrance",
+        to_node="hub_east_entrance",
         distance=20,
         slope=0.0,
         surface=SurfaceType.SMOOTH_PAVEMENT,
