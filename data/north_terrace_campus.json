@@ -1,7 +1,7 @@
 {
   "metadata": {
     "campus_name": "University of Adelaide - North Terrace Campus",
-    "last_updated": "2026-02-17T13:23:40.199620",
+    "last_updated": "2026-02-17T13:28:23.253747",
     "contributors": [
       "Enhanced Accessibility Mapping"
     ],
@@ -17,10 +17,10 @@
       "building": "Barr Smith Library",
       "floor": 0,
       "features": [
-        "automatic_door",
         "rest_area",
+        "accessible_bathroom",
         "elevator",
-        "accessible_bathroom"
+        "automatic_door"
       ],
       "is_indoor": false,
       "notes": "Main accessible entrance with elevator access to all floors"
@@ -48,8 +48,8 @@
       "floor": 1,
       "features": [
         "rest_area",
-        "elevator",
-        "accessible_bathroom"
+        "accessible_bathroom",
+        "elevator"
       ],
       "is_indoor": true,
       "notes": ""
@@ -62,10 +62,10 @@
       "building": "Hub Central",
       "floor": 0,
       "features": [
-        "automatic_door",
         "rest_area",
+        "accessible_bathroom",
         "elevator",
-        "accessible_bathroom"
+        "automatic_door"
       ],
       "is_indoor": false,
       "notes": "Primary student services location"
@@ -92,9 +92,9 @@
       "building": "Ingkarni Wardli",
       "floor": 0,
       "features": [
-        "automatic_door",
+        "accessible_bathroom",
         "elevator",
-        "accessible_bathroom"
+        "automatic_door"
       ],
       "is_indoor": false,
       "notes": ""
@@ -121,8 +121,8 @@
       "building": "Napier Building",
       "floor": 0,
       "features": [
-        "automatic_door",
-        "elevator"
+        "elevator",
+        "automatic_door"
       ],
       "is_indoor": false,
       "notes": ""
@@ -189,9 +189,9 @@
       "building": "Engineering North",
       "floor": 0,
       "features": [
-        "automatic_door",
+        "accessible_bathroom",
         "elevator",
-        "accessible_bathroom"
+        "automatic_door"
       ],
       "is_indoor": false,
       "notes": ""
@@ -243,10 +243,10 @@
       "building": "Union House",
       "floor": 0,
       "features": [
-        "automatic_door",
         "rest_area",
         "elevator",
-        "accessible_bathroom"
+        "accessible_bathroom",
+        "automatic_door"
       ],
       "is_indoor": false,
       "notes": "Food court and student spaces"
@@ -272,8 +272,8 @@
       "building": "Horace Lamb",
       "floor": 0,
       "features": [
-        "automatic_door",
-        "elevator"
+        "elevator",
+        "automatic_door"
       ],
       "is_indoor": false,
       "notes": ""
@@ -542,6 +542,22 @@
       "is_sheltered": false,
       "features": [
         "sheltered"
+      ],
+      "is_accessible": true,
+      "blocked_reason": null,
+      "blocked_until": null
+    },
+    {
+      "from_node": "hub_east_entrance",
+      "to_node": "post_office_intersection",
+      "distance": 20,
+      "slope": -0.0,
+      "surface": "smooth_pavement",
+      "width": 5.5,
+      "is_bidirectional": true,
+      "is_sheltered": false,
+      "features": [
+        "well_lit"
       ],
       "is_accessible": true,
       "blocked_reason": null,
@@ -844,8 +860,8 @@
       "is_bidirectional": true,
       "is_sheltered": false,
       "features": [
-        "automatic_door",
-        "sheltered"
+        "sheltered",
+        "automatic_door"
       ],
       "is_accessible": true,
       "blocked_reason": null,
@@ -962,22 +978,6 @@
       "blocked_until": null
     },
     {
-      "from_node": "post_office_intersection",
-      "to_node": "hub_east_endtrance",
-      "distance": 20,
-      "slope": 0.0,
-      "surface": "smooth_pavement",
-      "width": 5.5,
-      "is_bidirectional": true,
-      "is_sheltered": false,
-      "features": [
-        "well_lit"
-      ],
-      "is_accessible": true,
-      "blocked_reason": null,
-      "blocked_until": null
-    },
-    {
       "from_node": "elderhall",
       "to_node": "main_entrance_lawn",
       "distance": 15,
@@ -1034,8 +1034,8 @@
       "is_bidirectional": true,
       "is_sheltered": false,
       "features": [
-        "curb_cut",
         "rest_area",
+        "curb_cut",
         "well_lit"
       ],
       "is_accessible": true,
