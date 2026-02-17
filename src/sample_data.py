@@ -632,6 +632,17 @@ def create_sample_campus() -> CampusGraph:
 
     graph.add_edge(Edge(
         from_node="post_office_intersection",
+        to_node="hub_east_endtrance",
+        distance=20,
+        slope=0.0,
+        surface=SurfaceType.SMOOTH_PAVEMENT,
+        width=5.5,
+        is_sheltered=False,
+        features={AccessibilityFeature.WELL_LIT}
+    ))
+
+    graph.add_edge(Edge(
+        from_node="post_office_intersection",
         to_node="ingkarni_wardli_main",
         distance=60,
         slope=0.0,
